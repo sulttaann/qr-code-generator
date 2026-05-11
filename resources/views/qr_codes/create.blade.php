@@ -243,7 +243,7 @@
                         <i class="bi bi-camera text-success me-1"></i>Cara ambil QR dari app wallet:
                     </p>
                     <div class="mb-2">
-                        <p class="small fw-semibold mb-1">📱 DANA:</p>
+                        <p class="small fw-semibold mb-1">DANA:</p>
                         <ol class="small text-muted ps-3 mb-0">
                             <li>Buka DANA → Minta Uang</li>
                             <li>Tap <strong>QRIS</strong></li>
@@ -252,7 +252,7 @@
                         </ol>
                     </div>
                     <div class="mb-2">
-                        <p class="small fw-semibold mb-1">📱 GoPay:</p>
+                        <p class="small fw-semibold mb-1">GoPay:</p>
                         <ol class="small text-muted ps-3 mb-0">
                             <li>Buka Gojek → GoPay</li>
                             <li>Tap <strong>Terima</strong></li>
@@ -261,7 +261,7 @@
                         </ol>
                     </div>
                     <div class="mb-2">
-                        <p class="small fw-semibold mb-1">📱 OVO:</p>
+                        <p class="small fw-semibold mb-1">OVO:</p>
                         <ol class="small text-muted ps-3 mb-0">
                             <li>Buka OVO → Minta</li>
                             <li>Pilih <strong>QR Code</strong></li>
@@ -301,12 +301,12 @@
             whatsapp:  '<b>WhatsApp</b><br>Nomor format internasional tanpa +. Contoh: 628123456789',
             email:     '<b>Email</b><br>Masukkan alamat email tujuan.',
             wifi:      '<b>WiFi</b><br>Isi nama WiFi dan password. Scan QR untuk konek otomatis!',
-            payment:   '<b>💳 Payment</b><br>Isi info rekening + upload QR dari app wallet kamu. Scan QR → buka halaman profil → orang bisa langsung bayar.',
+            payment:   '<b>Payment</b><br>Isi info rekening + upload QR dari app wallet kamu. Scan QR untuk buka kartu profil pembayaran.',
             text:      '<b>Teks Bebas</b><br>Masukkan teks apapun.',
             phone:     '<b>Telepon</b><br>Masukkan nomor telepon lengkap. Contoh: +628123456789',
         };
 
-        const typeIcons = { url:'🌐', instagram:'📸', whatsapp:'💬', email:'📧', wifi:'📶', payment:'💳', text:'📝', phone:'📞' };
+        const typeIcons = { url:'', instagram:'', whatsapp:'', email:'', wifi:'', payment:'', text:'', phone:'' };
         const typeNames = { url:'Website URL', instagram:'Instagram', whatsapp:'WhatsApp', email:'Email', wifi:'WiFi', payment:'Payment', text:'Teks', phone:'Telepon' };
 
         qrTypeSelect.addEventListener('change', function () {

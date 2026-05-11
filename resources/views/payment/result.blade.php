@@ -23,7 +23,7 @@
                 {{-- Header --}}
                 <div style="background: #198754; color: white; padding: 18px; text-align: center;">
                     <div style="font-size: 1.3rem; font-weight: bold; margin-bottom: 4px;">
-                        💳 PROFIL PEMBAYARAN
+                        PROFIL PEMBAYARAN
                     </div>
                     <div style="font-size: 0.8rem; opacity: 0.9;">
                         Scan QR di bawah untuk melakukan pembayaran
@@ -111,7 +111,7 @@
                     <li class="mb-1"><strong>Print</strong> → tempel di meja/kasir</li>
                     <li class="mb-1"><strong>Screenshot</strong> → share ke WhatsApp/IG</li>
                     <li class="mb-1"><strong>Save PDF</strong> → simpan di HP</li>
-                    <li>Orang scan QR di kartu → langsung bayar ✅</li>
+                    <li>Orang scan QR di kartu → langsung bayar</li>
                 </ol>
             </div>
 
