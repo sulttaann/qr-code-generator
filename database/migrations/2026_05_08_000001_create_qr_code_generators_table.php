@@ -6,24 +6,17 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('qr_code_generators', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('qr_type');
-            $table->text('qr_content');
+            $table->string('qr_type');    // jenis QR: url, whatsapp, wifi, dll
+            $table->text('qr_content');   // konten yang di-encode ke QR
             $table->string('qr_image')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('qr_code_generators');
