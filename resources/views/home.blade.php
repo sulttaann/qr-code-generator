@@ -454,6 +454,17 @@
         // Sembunyikan semua field
         document.querySelectorAll('.field-group').forEach(f => f.style.display = 'none');
 
+        // Reset panel kanan — sembunyikan QR hasil sebelumnya
+        const qrResultArea = document.getElementById('qr-result-area');
+        if (qrResultArea) {
+            qrResultArea.innerHTML = `
+                <div class="text-center text-muted">
+                    <i class="bi bi-qr-code" style="font-size:5rem; color:#ddd"></i>
+                    <p class="mt-3 mb-1 fw-semibold">QR Code akan muncul di sini</p>
+                    <p class="small">Pilih jenis QR dan isi form di sebelah kiri,<br>lalu klik Generate.</p>
+                </div>`;
+        }
+
         if (type === 'payment') {
             qrForm.style.display      = 'none';
             paymentForm.style.display = 'block';
