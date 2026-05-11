@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class="page-title">
-            <i class="bi bi-plus-circle text-success me-2"></i>Buat QR Code
-        </h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <h1 class="page-title">
+                <i class="bi bi-plus-circle me-2"></i>Buat QR Code
+            </h1>
+            <span class="badge bg-dark">
+                <i class="bi bi-eye me-1"></i>Halaman ini dikunjungi {{ $visitCount }} kali
+            </span>
+        </div>
     </x-slot>
 
     <div class="row g-4 justify-content-center">

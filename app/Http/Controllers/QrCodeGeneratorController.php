@@ -4,20 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\QrCodeGenerator;
-use Illuminate\Support\Facades\Auth;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Illuminate\Support\Facades\DB;
 
 class QrCodeGeneratorController extends Controller
 {
     public function index()
     {
-        $qrCodes = Auth::user()->qrCodeGenerators()->latest()->get();
-        return view('qr_codes.index', compact('qrCodes'));
+        $qrCodes = QrCodeGenerator::latest()->get();
+        $visitCount = DB::table('page_visits')->value('count');
+        return view('qr_codes.index', compact('qrCodes', 'visitCount'));
     }
 
     public function create()
     {
-        return view('qr_codes.create');
+        // Tambah counter kunjungan
+        DB::table('page_visits')->update(['count' => DB::raw('count + 1')]);
+        $visitCount = DB::table('page_visits')->value('count');
+        return view('qr_codes.create', compact('visitCount'));
     }
 
     public function store(Request $request)
@@ -28,7 +32,6 @@ class QrCodeGeneratorController extends Controller
         ]);
 
         $qr = QrCodeGenerator::create([
-            'user_id'    => Auth::id(),
             'qr_type'    => $request->qr_type,
             'qr_content' => $request->qr_content,
             'qr_image'   => null,
@@ -41,15 +44,14 @@ class QrCodeGeneratorController extends Controller
 
     public function show($id)
     {
-        $qr = QrCodeGenerator::where('user_id', Auth::id())->findOrFail($id);
+        $qr = QrCodeGenerator::findOrFail($id);
         $generatedQr = QrCode::size(300)->generate($qr->qr_content);
         return view('qr_codes.result', compact('generatedQr', 'qr'));
     }
 
     public function destroy($id)
     {
-        $qr = QrCodeGenerator::where('user_id', Auth::id())->findOrFail($id);
-        $qr->delete();
+        QrCodeGenerator::findOrFail($id)->delete();
         return redirect()->route('qr_codes.index')->with('success', 'QR Code berhasil dihapus!');
     }
 }

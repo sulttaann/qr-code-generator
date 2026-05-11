@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentProfile extends Model
 {
     protected $fillable = [
-        'user_id',
         'slug',
         'platform',
         'nomor',
@@ -15,9 +14,4 @@ class PaymentProfile extends Model
         'nominal',
         'qr_image',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
 }
