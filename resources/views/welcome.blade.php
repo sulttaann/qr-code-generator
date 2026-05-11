@@ -58,56 +58,56 @@
         <div class="row g-3 justify-content-center">
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-link-45deg text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/web_logo.png') }}" alt="URL" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">Website URL</div>
                     <small class="text-muted">Link website apapun</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-whatsapp text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/whatsapp_logo.jpg') }}" alt="WhatsApp" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain;border-radius:8px">
                     <div class="fw-semibold">WhatsApp</div>
                     <small class="text-muted">Buka chat langsung</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-wifi text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/wifi_logo.png') }}" alt="WiFi" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">WiFi</div>
                     <small class="text-muted">Konek WiFi otomatis</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-credit-card text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/wallet_logo.avif') }}" alt="Payment" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">Payment</div>
                     <small class="text-muted">DANA, GoPay, QRIS</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-instagram text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/instagram_logo.svg') }}" alt="Instagram" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">Instagram</div>
                     <small class="text-muted">Profil Instagram</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-envelope text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/email_logo.png') }}" alt="Email" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">Email</div>
                     <small class="text-muted">Buka email otomatis</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-chat-text text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/teks_logo.png') }}" alt="Teks" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain">
                     <div class="fw-semibold">Teks Bebas</div>
                     <small class="text-muted">Teks apapun</small>
                 </div>
             </div>
             <div class="col-md-3 col-6">
                 <div class="card text-center p-3">
-                    <i class="bi bi-telephone text-success mb-2" style="font-size: 2rem"></i>
+                    <img src="{{ asset('images/telephone_logo.jpg') }}" alt="Telepon" class="mx-auto mb-2" style="width:48px;height:48px;object-fit:contain;border-radius:8px">
                     <div class="fw-semibold">Telepon</div>
                     <small class="text-muted">Nomor telepon</small>
                 </div>

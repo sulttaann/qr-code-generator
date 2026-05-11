@@ -71,10 +71,23 @@
                 <div class="d-flex align-items-center border-bottom py-2 gap-3">
                     <div>
                         @php
-                            $icons = ['url'=>'link-45deg','instagram'=>'instagram','whatsapp'=>'whatsapp','email'=>'envelope','wifi'=>'wifi','payment'=>'credit-card','text'=>'chat-text','phone'=>'telephone'];
-                            $icon = $icons[$qr->qr_type] ?? 'qr-code';
+                            $logos = [
+                                'url'       => 'web_logo.png',
+                                'instagram' => 'instagram_logo.svg',
+                                'whatsapp'  => 'whatsapp_logo.jpg',
+                                'email'     => 'email_logo.png',
+                                'wifi'      => 'wifi_logo.png',
+                                'payment'   => 'wallet_logo.avif',
+                                'text'      => 'teks_logo.png',
+                                'phone'     => 'telephone_logo.jpg',
+                            ];
+                            $logo = $logos[$qr->qr_type] ?? null;
                         @endphp
-                        <i class="bi bi-{{ $icon }} text-success" style="font-size: 1.3rem"></i>
+                        @if($logo)
+                            <img src="{{ asset('images/' . $logo) }}" style="width:32px;height:32px;object-fit:contain;border-radius:4px">
+                        @else
+                            <i class="bi bi-qr-code text-success" style="font-size: 1.3rem"></i>
+                        @endif
                     </div>
                     <div class="flex-grow-1 overflow-hidden">
                         <div class="fw-semibold text-capitalize small">{{ $qr->qr_type }}</div>

@@ -306,7 +306,16 @@
             phone:     '<b>Telepon</b><br>Masukkan nomor telepon lengkap. Contoh: +628123456789',
         };
 
-        const typeIcons = { url:'', instagram:'', whatsapp:'', email:'', wifi:'', payment:'', text:'', phone:'' };
+        const typeIcons = {
+            url:       "{{ asset('images/web_logo.png') }}",
+            instagram: "{{ asset('images/instagram_logo.svg') }}",
+            whatsapp:  "{{ asset('images/whatsapp_logo.jpg') }}",
+            email:     "{{ asset('images/email_logo.png') }}",
+            wifi:      "{{ asset('images/wifi_logo.png') }}",
+            payment:   "{{ asset('images/wallet_logo.avif') }}",
+            text:      "{{ asset('images/teks_logo.png') }}",
+            phone:     "{{ asset('images/telephone_logo.jpg') }}"
+        };
         const typeNames = { url:'Website URL', instagram:'Instagram', whatsapp:'WhatsApp', email:'Email', wifi:'WiFi', payment:'Payment', text:'Teks', phone:'Telepon' };
 
         qrTypeSelect.addEventListener('change', function () {
@@ -335,7 +344,7 @@
             // Update preview
             previewPlaceholder.style.display = 'none';
             previewInfo.style.display        = 'block';
-            previewTypeIcon.textContent      = typeIcons[val] || '📱';
+            previewTypeIcon.innerHTML        = '<img src="' + (typeIcons[val] || '') + '" style="width:56px;height:56px;object-fit:contain;border-radius:8px">';
             previewTypeName.textContent      = typeNames[val] || val;
             previewContentPreview.textContent = 'Isi form untuk preview...';
 

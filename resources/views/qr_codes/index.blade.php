@@ -24,8 +24,17 @@
 
     @forelse($qrCodes as $qr)
     @php
-        $icons = ['url'=>'link-45deg','instagram'=>'instagram','whatsapp'=>'whatsapp','email'=>'envelope','wifi'=>'wifi','payment'=>'credit-card','text'=>'chat-text','phone'=>'telephone'];
-        $icon = $icons[$qr->qr_type] ?? 'qr-code';
+        $logos = [
+            'url'       => 'web_logo.png',
+            'instagram' => 'instagram_logo.svg',
+            'whatsapp'  => 'whatsapp_logo.jpg',
+            'email'     => 'email_logo.png',
+            'wifi'      => 'wifi_logo.png',
+            'payment'   => 'wallet_logo.avif',
+            'text'      => 'teks_logo.png',
+            'phone'     => 'telephone_logo.jpg',
+        ];
+        $logo = $logos[$qr->qr_type] ?? null;
     @endphp
 
     <div class="card mb-2">
@@ -33,7 +42,11 @@
             <div class="row align-items-center g-2">
                 <!-- Icon -->
                 <div class="col-auto">
-                    <i class="bi bi-{{ $icon }} text-success" style="font-size: 1.5rem"></i>
+                    @if($logo)
+                        <img src="{{ asset('images/' . $logo) }}" style="width:36px;height:36px;object-fit:contain;border-radius:4px">
+                    @else
+                        <i class="bi bi-qr-code text-success" style="font-size: 1.5rem"></i>
+                    @endif
                 </div>
 
                 <!-- Info -->
