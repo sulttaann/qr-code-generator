@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\PaymentProfile;
-use App\Models\QrCodeGenerator;
 use Illuminate\Support\Str;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class PaymentProfileController extends Controller
 {
@@ -32,13 +30,12 @@ class PaymentProfileController extends Controller
             'qr_image' => $path,
         ]);
 
-        // Simpan ke history
-        QrCodeGenerator::create([
-            'qr_type'    => 'payment',
-            'qr_content' => $request->platform . ' - ' . $request->nomor . ' (' . $request->nama . ')',
-            'qr_image'   => null,
-        ]);
+        return redirect()->route('payment.card', $profile->slug);
+    }
 
-        return view('payment.result', compact('profile'));
+    public function card($slug)
+    {
+        $profile = PaymentProfile::where('slug', $slug)->firstOrFail();
+        return view('payment.card', compact('profile'));
     }
 }
