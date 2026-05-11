@@ -245,7 +245,7 @@
 
                         </div>
 
-                        <div class="d-grid mt-3" id="btn-generate" style="display:none !important">
+                        <div class="d-grid mt-3" id="btn-generate" style="display:none">
                             <button type="submit" class="btn btn-dark">
                                 <i class="bi bi-qr-code me-1"></i>Generate QR Code
                             </button>
@@ -435,18 +435,21 @@
     const paymentForm = document.getElementById('paymentForm');
     const btnGenerate = document.getElementById('btn-generate');
 
+    // Saat load awal — aktifkan tipe tanpa reset panel kanan (QR sudah ada dari server)
     @if(isset($qr_type))
-    activateType('{{ $qr_type }}');
+    activateType('{{ $qr_type }}', false);
     @endif
 
+    // Saat user klik tipe — aktifkan DAN reset panel kanan
     typeGrid.querySelectorAll('.type-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            activateType(this.dataset.type);
+            activateType(this.dataset.type, true);
         });
     });
 
-    function activateType(type) {
-        // Tandai tombol aktif — TIDAK hapus icon, hanya tambah border
+    // resetPanel: true = reset panel kanan, false = biarkan panel kanan apa adanya
+    function activateType(type, resetPanel = true) {
+        // Tandai tombol aktif
         typeGrid.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
         const activeBtn = typeGrid.querySelector('[data-type="' + type + '"]');
         if (activeBtn) activeBtn.classList.add('active');
@@ -454,16 +457,23 @@
         // Sembunyikan semua field
         document.querySelectorAll('.field-group').forEach(f => f.style.display = 'none');
 
-        // Reset panel kanan — sembunyikan QR hasil sebelumnya
-        const qrResultArea = document.getElementById('qr-result-area');
-        if (qrResultArea) {
-            qrResultArea.innerHTML = `
-                <div class="text-center text-muted">
-                    <i class="bi bi-qr-code" style="font-size:5rem; color:#ddd"></i>
-                    <p class="mt-3 mb-1 fw-semibold">QR Code akan muncul di sini</p>
-                    <p class="small">Pilih jenis QR dan isi form di sebelah kiri,<br>lalu klik Generate.</p>
-                </div>`;
+        // Reset panel kanan HANYA jika user yang klik (bukan load awal)
+        if (resetPanel) {
+            const qrResultArea = document.getElementById('qr-result-area');
+            if (qrResultArea) {
+                qrResultArea.innerHTML = `
+                    <div class="text-center text-muted">
+                        <i class="bi bi-qr-code" style="font-size:5rem; color:#ddd"></i>
+                        <p class="mt-3 mb-1 fw-semibold">QR Code akan muncul di sini</p>
+                        <p class="small">Pilih jenis QR dan isi form di sebelah kiri,<br>lalu klik Generate.</p>
+                    </div>`;
+            }
         }
+        const activeBtn = typeGrid.querySelector('[data-type="' + type + '"]');
+        if (activeBtn) activeBtn.classList.add('active');
+
+        // Sembunyikan semua field
+        document.querySelectorAll('.field-group').forEach(f => f.style.display = 'none');
 
         if (type === 'payment') {
             qrForm.style.display      = 'none';
