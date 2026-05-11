@@ -115,13 +115,7 @@
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-white border-top text-center py-3">
-        <small class="text-muted">
-            <i class="bi bi-qr-code text-success me-1"></i>
-            QR Generator &copy; {{ date('Y') }}
-        </small>
-    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

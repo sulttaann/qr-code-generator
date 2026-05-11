@@ -123,13 +123,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <i class="bi bi-qr-code me-1 text-success"></i>
-            QR Generator &copy; {{ date('Y') }}
-        </div>
-    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
